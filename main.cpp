@@ -1,5 +1,7 @@
 #include "JSON.hpp"
-// Simple demo usage
+#include  "JSONparse.hpp"
+
+
 int main() {
     JsonValue root = JsonObject{}; // root object
 
@@ -38,6 +40,27 @@ int main() {
     std::ofstream os = root.dump("ciao.json");
     os.close();
 
-    // Pretty example (not implemented here): you could write a pretty-print function that indents
+        std::istringstream json(R"({
+        "name": "Emanuele",
+        "age": 27,
+        "active": true,
+        "skills": ["C++", "Python", "JSON"],
+        "address": { "city": "Rome", "zip": "00100" },
+        "height": 1.82,
+        "married": false,
+        "nothing": null
+        })");
+
+        JsonParser parser;
+        JsonValue second_root = parser.parse(json);
+
+        std::cout << "JSON parsed successfully!\n";
+
+        //test
+        std::cout<<second_root["skills"][1]<<'\n';
+
+
+
+
     return 0;
 }

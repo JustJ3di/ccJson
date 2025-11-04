@@ -36,6 +36,7 @@ public:
     JsonValue(const JsonObject& o) : v(o) {}
 
 
+
     // Helpers for type-checking
     bool is_null()   const { return std::holds_alternative<std::nullptr_t>(v); }
     bool is_bool()   const { return std::holds_alternative<bool>(v); }
@@ -92,7 +93,14 @@ public:
 
     }
 
+    friend std::ostream& operator<<(std::ostream& os, const JsonValue& obj) {
+        os<<obj.to_string();
+    }
+
+
 private:
+
+
 
 
     static std::string escape_string(const std::string& s) {
