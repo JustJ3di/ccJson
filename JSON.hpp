@@ -36,6 +36,7 @@ public:
     JsonValue(const JsonObject& o) : v(o) {}
 
 
+
     // Helpers for type-checking
     bool is_null()   const { return std::holds_alternative<std::nullptr_t>(v); }
     bool is_bool()   const { return std::holds_alternative<bool>(v); }
@@ -56,7 +57,7 @@ public:
     const JsonArray& as_array() const { return std::get<JsonArray>(v); }
     const JsonObject& as_object() const { return std::get<JsonObject>(v); }
 
-    // convenience: create object member via [] (creates object if needed)
+    // OPERATORS OVERLOAD :)
     JsonValue& operator[](const std::string& key) {
         if (!is_object()) v = JsonObject{};
         return std::get<JsonObject>(v)[key];
@@ -69,7 +70,7 @@ public:
         return arr[i];
     }
 
-    // convenience for arrays: push_back
+    // push_back
     void push_back(const JsonValue& item) {
         if (!is_array()) v = JsonArray{};
         std::get<JsonArray>(v).push_back(item);
@@ -92,7 +93,14 @@ public:
 
     }
 
+    friend std::ostream& operator<<(std::ostream& os, const JsonValue& obj) {
+        os<<obj.to_string();
+    }
+
+
 private:
+
+
 
 
     static std::string escape_string(const std::string& s) {
