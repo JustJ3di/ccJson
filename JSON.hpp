@@ -12,13 +12,14 @@
 #include <cmath>
 
 
-struct JsonValue;
+class JsonValue;
 //*****************ALIAS*********
 using JsonObject = std::map<std::string, JsonValue>;
 using JsonArray  = std::vector<JsonValue>;
 
 // JsonValue can hold null, bool, number (double), string, array or object.
-struct JsonValue {
+class JsonValue {
+public:
     using Variant = std::variant<std::nullptr_t, bool, double, std::string, JsonArray, JsonObject>;
     Variant v;
 
@@ -35,7 +36,7 @@ struct JsonValue {
     JsonValue(const JsonObject& o) : v(o) {}
 
 
-    // Helpers for type-checking / access (throws bad_variant_access if wrong type)
+    // Helpers for type-checking
     bool is_null()   const { return std::holds_alternative<std::nullptr_t>(v); }
     bool is_bool()   const { return std::holds_alternative<bool>(v); }
     bool is_number() const { return std::holds_alternative<double>(v); }
@@ -61,18 +62,20 @@ struct JsonValue {
         return std::get<JsonObject>(v)[key];
     }
 
-    // convenience for arrays: push_back
-    void push_back(const JsonValue& item) {
-        if (!is_array()) v = JsonArray{};
-        std::get<JsonArray>(v).push_back(item);
-    }
-
     JsonValue& operator[](std::size_t i) {
         if (!is_array()) throw std::runtime_error("JsonValue is not an array");
         auto& arr = std::get<JsonArray>(v);
         if (i >= arr.size()) throw std::out_of_range("Json array index out of range");
         return arr[i];
     }
+
+    // convenience for arrays: push_back
+    void push_back(const JsonValue& item) {
+        if (!is_array()) v = JsonArray{};
+        std::get<JsonArray>(v).push_back(item);
+    }
+
+
 
     // Serialize to JSON string
     std::string to_string() const {

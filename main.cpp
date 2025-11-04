@@ -25,8 +25,9 @@ int main() {
 
     //test overload []
     std::cout<<root["hobbies"][1].to_string()<<'\n';
+    root["hobbies"][1] = 10;
 
-    // More complex nested structures
+    //test nested structures
     root["scores"] = JsonArray{
         JsonObject{{"subject","math"},{"score",95}},
         JsonObject{{"subject","physics"},{"score",88}}
