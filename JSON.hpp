@@ -34,6 +34,9 @@ struct JsonValue {
     JsonValue(const JsonArray& a) : v(a) {}
     JsonValue(const JsonObject& o) : v(o) {}
 
+    JsonValue(const JsonValue&) = delete;
+    JsonValue(const JsonValue&&) = delete;
+
     // Helpers for type-checking / access (throws bad_variant_access if wrong type)
     bool is_null()   const { return std::holds_alternative<std::nullptr_t>(v); }
     bool is_bool()   const { return std::holds_alternative<bool>(v); }
