@@ -23,6 +23,7 @@ int main() {
     hobbies.push_back("climbing");
     root["hobbies"] = hobbies;
 
+    //test overload []
     std::cout<<root["hobbies"][1].to_string()<<'\n';
 
     // More complex nested structures
@@ -34,18 +35,7 @@ int main() {
     std::cout << root.to_string() << std::endl;
 
     std::ofstream os = root.dump("ciao.json");
-    std::ofstream outFile("example.txt");
-    // Check if the file is open
-    if (!outFile.is_open()) {
-        std::cout << "Error opening file for writing." << std::endl;
-        return 1;
-    }
-    // Write data to the file
-    outFile << "Hello, World!" << std::endl;
-    outFile << "This is a file handling example in C++." << std::endl;
-    // Close the file
-    outFile.close();
-    std::cout << "Data written to the file successfully." << std::endl;
+    os.close();
 
     // Pretty example (not implemented here): you could write a pretty-print function that indents
     return 0;

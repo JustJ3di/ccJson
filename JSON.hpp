@@ -34,8 +34,6 @@ struct JsonValue {
     JsonValue(const JsonArray& a) : v(a) {}
     JsonValue(const JsonObject& o) : v(o) {}
 
-    JsonValue(const JsonValue&) = delete;
-    JsonValue(const JsonValue&&) = delete;
 
     // Helpers for type-checking / access (throws bad_variant_access if wrong type)
     bool is_null()   const { return std::holds_alternative<std::nullptr_t>(v); }
@@ -87,7 +85,6 @@ struct JsonValue {
         std::ofstream os(filename);
         if (!os.is_open())throw std::runtime_error("Could not open file");
         write(os);
-        os.close();
         return os;
 
     }
