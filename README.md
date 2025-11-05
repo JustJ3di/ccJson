@@ -4,7 +4,7 @@ I use this standard mainly for the std::variant feature, which allows me to buil
 I also rely on standard library data structures such as std::map and std::vector.
 
 For the parsing algorithm, I implemented a recursive-descent parser.
-I use CLion to write the code — I don’t use the AI assistant since I don’t have the Pro version, but I think it’s simple enough to work without it.
+I use CLion to write the code, it works very well.
 
 In the end, C++ is still quite hard to manage, but the new standards make C feel like a distant memory.
 And last but not least — operator overloading is fun! I’m a big fan of it.
