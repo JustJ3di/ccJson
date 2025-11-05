@@ -1,11 +1,14 @@
 # Json parser in c++
-I would improve my c++, so I would ripropose a Json parser written in c++ 20.
-I use this standard for the variant feature. I type-safe template for manage multiple data.
-I also use the data structures already presents on std like map and vector.
-For the parsing algorithm, I use recursive-descending parser.
-I use Clion for code it. I not use the agent (I have not the "pro-version"). I think it is enough easy to use.
-In the end... c++ is very hard to manage. The new standard make C a distant memory.
-Last but not least, operators overload is funny! I am a fun of its.
+I want to improve my C++ skills, so I decided to reimplement a JSON parser written in C++20.
+I use this standard mainly for the std::variant feature, which allows me to build a type-safe template for handling multiple data types.
+I also rely on standard library data structures such as std::map and std::vector.
+
+For the parsing algorithm, I implemented a recursive-descent parser.
+I use CLion to write the code — I don’t use the AI assistant since I don’t have the Pro version, but I think it’s simple enough to work without it.
+
+In the end, C++ is still quite hard to manage, but the new standards make C feel like a distant memory.
+And last but not least — operator overloading is fun! I’m a big fan of it.
 
 ## How use it
-In the main.cc there are some test. The code is very simple,  but maybe i neet to add more comments.
+In main.cc, there are a few test cases.
+The code is quite simple, but I might need to add more comments for clarity.
