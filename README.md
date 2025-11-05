@@ -8,7 +8,7 @@ I use CLion to write the code, it works very well.
 
 In the end, C++ is still quite hard to manage, but the new standards make C feel like a distant memory.
 And last but not least — operator overloading is fun! I’m a big fan of it.
-
+ 
 ## How use it
 In main.cc, there are a few test cases.
 The code is quite simple, but I might need to add more comments for clarity.

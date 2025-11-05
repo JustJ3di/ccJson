@@ -1,6 +1,5 @@
 #include "JSON.hpp"
 
-#include "json.hpp"
 
 //===========================================================
 //                  JsonValue implementation
