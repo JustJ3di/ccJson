@@ -1,6 +1,6 @@
 #include "JSON.hpp"
 
-
+using namespace  js;
 int main() {
     JsonValue root = JsonObject{}; // root object
 

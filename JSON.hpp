@@ -12,7 +12,8 @@
 #include <cctype>
 #include <cmath>
 
-//***************** ALIASES *********
+namespace js {
+    //***************** ALIASES *********
 class JsonValue;
 using JsonObject = std::map<std::string, JsonValue,std::less<>>;
 using JsonArray  = std::vector<JsonValue>;
@@ -92,3 +93,5 @@ private:
     JsonValue parse_null(std::istream& in);
 };
 
+
+}
