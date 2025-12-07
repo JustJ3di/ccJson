@@ -14,7 +14,7 @@
 
 //***************** ALIASES *********
 class JsonValue;
-using JsonObject = std::map<std::string, JsonValue>;
+using JsonObject = std::map<std::string, JsonValue,std::less<>>;
 using JsonArray  = std::vector<JsonValue>;
 
 //===========================================================
